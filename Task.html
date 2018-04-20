@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>Windows Forms - zadanie 1</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h4>Windows Forms - cz.1</h4>
+<p>Intellisense</p>
+<ul>
+	<li><a href="IntellisenseLab.exe">Wzór programu</a>, <a href="names.txt">Podpowiadane wyrazy</a></li>
+	<li>Wygląd:
+    <ul>
+		<li>Uruchamia się na środku ekranu</li>
+	    <li>Minimalny rozmiar okna to 400x300</li>
+		<li>W przypadku zmiany rozmiaru okna pole tekstowe odpowiednio się skaluje</li>
+		<li>Pola tekstowe: czcionka Calibri, rozmiar 12pt.</li>
+		<li>Menu: przycisk "Load", uruchamia okno wyboru pliku, które umożliwia wybór jedynie plików .txt. W przypadku nieprawidłowego formatu wczytywanego pliku użytkownik powinien zostać o tym poinformowany</li>
+    </ul>
+	</li>
+	<li>Intellisense cz. 1:
+       <ul>
+        <li>W chwili rozpoczęcia pisania (duże i małe litery angielskiego alfabetu) pojawia się okno z wczytanymi wyrazami</li>
+        <li>Okno podpowiedzi jest zawsze widoczne poniżej kursora tekstu</li>
+        <li>Podpowiadane wyrazy są posortowane alfabetycznie</li>
+		</ul>
+	</li>
+	<li>Intellisense cz. 2:
+       <ul>
+        <li>Wielkość liter jest ignorowana</li>
+        <li>Strzałki "góra" i "dół" pozwalają na wybór jednego z podpowiadanych wyrazów</li>
+        <li>Stawianie kolejnych znaków zawęża wybór podpowiadanych wyrazów do tych o prefiksie zgodnych z tekstem wprowadzonych od chwili rozpoczęcia podpowiadania tekstu</li>
+        <li>Aktualnie wybrany wyraz powinien być również wybrany po zawężeniu zbioru o ile wciąż do niego należy</li>
+        <li>Jeśli zbiór podpowiadanych wyrazów jest pustu okno podpowiedzi musi zostać zamknięte</li>
+        <li>Wciśnięcie TAB w momencie, gdy istnieje wybrany podpowiadany wyraz, powoduje wstawienie niewpisanego jeszcze suffiksu wyrazu</li>
+		</ul> 
+	</li>
+  
+  <li>Wskazówki:
+    <ul>
+        <li>RichTextBox, GetPositionFromCharIndex()</li>
+        <li>SelectionStart property, PreviewKeyDown event</li>
+        <li>Form, Show(), Focus(), Hide()</li>
+        <li>ListBox, SelectedItem property, SelectedIndex property</li>
+        <li>StringComparer.CurrentCultureIgnoreCase</li>
+    </ul>
+  </li>
+  <li><i>Uwaga: We wszystkich wątpliwych i nieopisanych aspektach obowiązuje odtwarzanie zachowania programu wzorcowego (poza ewentualnymi bugami).</i></li>
+</ul>
+
+<ul>
+	<li>Punktacja:
+	<ul>
+		<li>Sekcja "Wygląd" i "Intellisense cz. 1": 4 punkty</li>
+		<li>Sekcja "Intellisense cz. 2": 4 punkty</li>
+		<li><i>Uwaga: nie ma możliwości zdobycia punktów za niepełne funkcjonalności</i></li>
+	</ul>
+	</li>
+</ul>
+
+<h4>Windows Forms - cz.2</h4>
+<ul>
+  <li><a href="IntellisenseHome.exe">Wzór programu</a></li>
+  <li>Ogólne:
+       <ul>
+	   <li>Do listy podpowiadanych słów można dodać tylko słowa składające się w całości z liter (nie mogą w nich występować cyfry lub znaki interpunkcyjne)</li>
+	   <li>Dodać opcję "Export", która umożliwia zapisywanie słownika do pliku txt.</li>
+       </ul>
+  </li>
+  <li>Panel listy słów:
+       <ul>
+	    <li>Nie zmienia szerokości, gdy zmieniamy rozmiar całej aplikacji. Można zmienić szerokość za pomocą szarego paska.</li>
+		<li>Za pomocą klawisze Delete można usuwać elementy z tabeli. Możliwe jest usunięcie kilku elementów jednocześnie.</li>
+		<li>Pod tabelą znajdują się przyciski: "Add new word" (uruchamia okno dodawania nowego) oraz "Sort" - po naciśnieciu lista zostaje posortowana w kolejności rosnącej lub malejącej (na zmianę).</li>
+       </ul>
+  </li>
+  <li>Okno "Add new word":
+       <ul>
+	    <li>Pojawia się na środku okna rodzica</li>
+	    <li>Nie ma możliwości zmiany rozmiaru, zmaksymalizowania lub zminimalizowania</li>
+		<li>Umożliwia dodanie nowego słowa.</li>
+	    <li>Gdy okno "Add new word" jest widoczne, okno główne jest nieaktywne.</li>
+		<li>Gdy zostaną wpisane cyfry, znaki interpunkcyjne lub same białe znaki pojawia się ikona walidacji. Po najechaniu na nią kursorem pojawia się informacja o powodzie walidacji.</li>
+		<li>Po wciśnięciu przycisku "OK" okno się zamyka, a nowe słowo zostaje dodane. Jeżeli w chwili wciśnięcia "OK", w textboxie znajduje się nieprawidłowa wartość, pojawia się okno informujące o błędzie.</li>
+		<li>Przycisk "Cancel" powoduje zamknięcie okna oraz nic nie zostaje dodane do słownika</li>
+		<li>Jeżeli wciśniemy PPM na słowo nie będące na liście podpowiedzi znajdujące pojawia się menu kontekstowe, z opcją dodania tego słowa (pojawia się okno "Add new word" z automatycznie uzupełnionym słowem). Jeżeli słowo już znajduje się na liście, możliwe jest jego usunięcie. </li>
+		</ul>
+  </li>
+  <li>Zmiana czcionek:
+       <ul>
+	    <li>Możliwe jest dodanie pogrubienia, kursywy oraz podkreślenia tekstu znajdującego się w górnym panelu tekstowym. Można także zmienić styl i kolor czcionki oraz kolor tła.</li>
+	    <li>Ikony do przycisków można pobrać <a href="icons.7z">tutaj</a>. W aplikacji ikony powinny być wczytywane z Resources.</li>
+		<li>Po wciśnięciu pogrubienia, kursywy lub podkreślenia, przyciski zmieniają kolor tła. Po wyłączeniu tych opcji, kolor tła wraca do koloru pierwotnego. Style te można ze sobą łączyć (tzn. jest możliwe, żeby tekst był jednocześnie pogrubiony, pochyły oraz podkreślony).</li>
+	    <li>Po wciśnieciu przycisku zmiany koloru tła lub zmiany koloru czcionki pojawia się okno dialogowe wyboru koloru.</li>
+		<li>Możliwe jest przesunięcie panelu czcionek pod pole tekstowe.</li>
+		</ul>
+  </li>
+  <li>Drag&Drop:
+       <ul>
+	    <li>Możliwe jest dodanie słów do listy poprzez przeciągnięcie i upuszczenie pliku txt na listę. </li>
+		</ul>
+  </li>
+  <li>Wskazówki:
+    <ul>
+        <li>ContextMenuStrip, GetCharIndexFromPosition</li>
+        <li>ToolStripContainer, ToolStrip</li>
+        <li>SplitContainer</li>
+        <li>ErrorProvider</li>
+        <li>DialogResult</li>
+		<li>DragDrop, DragEnter</li>
+    </ul>
+  </li>
+  <li><i>Uwaga: We wszystkich wątpliwych i nieopisanych aspektach obowiązuje odtwarzanie zachowania programu wzorcowego (poza ewentualnymi bugami).</i></li>
+</ul>
+<ul>
+	<li>Orientacyjna punktacja:
+	<ul>
+		<li>eksport słownika: 1 punkt</li>
+        <li>usuwanie elementów ze słownika: 1 punkt</li>
+        <li>sortowanie kolumn: 1 punkt</li>
+		<li>drag&drop: 1 punkt</li>
+        <li>okno "Add new word" (bez walidacji): 1 punkt</li>
+		<li>walidacja okna "Add new word": 2 punkty</li>
+        <li>menu kontekstowe i poprawnie uzupełnione okno "Add new word": 1 punkt</li>
+        <li>panel zmiany czcionek (bez przesuwania): 2 punkty</li>
+        <li>przesuwanie panelu zmiany czcionek: 2 punkty</li>
+		<li><i>Uwaga: aby oddać cz.2 należy spełnić wszystkie funkcjonalności z cz.1</i></li>
+	</ul>
+	</li>
+</ul>
+</body>
+</html>
